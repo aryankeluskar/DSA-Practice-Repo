@@ -1,3 +1,5 @@
+# December 7, 2023
+
 import random
 
 def main():
@@ -8,16 +10,16 @@ def main():
       a.append(int(random.random()*1000+1))
 
    print("Original Array: "+str(a))
-
-   bubblesort(a)
-
-
+   selectionSort(a)
    print("Sorted Array: "+str(a))
-
-def bubblesort(a):
+1
+def selectionSort(a):
    for i in range(0, len(a)):
-      for j in range(0, len(a)-1):
-         if(a[j] > a[j+1]):
-            a[j], a[j+1] = a[j+1], a[j]
+      minIndex = i
+      for j in range(i, len(a)):
+         if(a[j] < a[minIndex]):
+            minIndex = j
+          
+      a[i], a[minIndex] = a[minIndex], a[i]
 
 main()
