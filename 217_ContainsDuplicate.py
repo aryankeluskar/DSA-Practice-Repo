@@ -1,5 +1,5 @@
 # December 8, 2023
-
+from typing import List
 
 class Solution(object):
     def FirstContainsDuplicate(self, nums):
