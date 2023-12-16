@@ -8,6 +8,7 @@ hashsets.add(1)
 hashsets.add(2)
 hashsets.add(3)
 
+
 print(hashsets)
 
 animals = ["cat", "dog", "dog", "rabbit", "horse"]
