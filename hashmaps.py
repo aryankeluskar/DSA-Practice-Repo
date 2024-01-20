@@ -10,6 +10,6 @@ city_map["America"] += ["DC", "NYC"]
 city_map["Bhutan"] += ["Thimphu"]
 city_map["Bangladesh"] += ["Dhaka"]
 
-print(city_map.keys())
-print(city_map.items())
-print(city_map.values())
+print(type(city_map.items()))
+print(type(city_map.keys()))
+print(list(city_map.values()))
