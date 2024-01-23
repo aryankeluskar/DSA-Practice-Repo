@@ -1,59 +1,70 @@
-from typing import List, Optional
+# Python program to merge k sorted listsays of size n each
 
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+# A Linked List node
+class Node:
+	def __init__(self, x):
+		self.data = x
+		self.next = None
 
-class Solution:
-    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        if not lists or len(lists) == 0:
-            return None
+from queue import PriorityQueue
+# Function to merge K sorted linked lists
+def mergeKLists(lists):
+    # Create a priority queue
+    pq = PriorityQueue()
 
-        # Initialize the head as the first element of the lists
-        head = lists[0]
+    # Push the first elements of all linked lists into the priority queue
+    for i in range(len(lists)):
+        if lists[i] is not None:
+            pq.put((lists[i].data, i))
 
-        for i in range(1, len(lists)):
-            current_list = lists[i]
+    head = Node(None)
+    curr = head
 
-            # Helper function to merge two sorted linked lists
-            def merge_two_lists(l1, l2):
-                dummy = ListNode(0)
-                current = dummy
+    # Merge the linked lists
+    while not pq.empty():
+        val, i = pq.get()
+        curr.next = Node(val)
+        curr = curr.next
+        if lists[i].next is not None:
+            pq.put((lists[i].next.data, i))
+            lists[i] = lists[i].next
 
-                while l1 and l2:
-                    if l1.val < l2.val:
-                        current.next = l1
-                        l1 = l1.next
-                    else:
-                        current.next = l2
-                        l2 = l2.next
-                    current = current.next
+    return head.next
 
-                current.next = l1 or l2
-                return dummy.next
+# Function to print nodes in a given linked list
+def printList(node):
+	while node is not None:
+		print(node.data, end=' ')
+		node = node.next
+	print()
 
-            # Merge the current list with the existing merged list
-            head = merge_two_lists(head, current_list)
+# Driver program to test the functions
+if __name__ == '__main__':
+	k = 3 # Number of linked lists
+	n = 4 # Number of elements in each list
 
-        return head
+	# An listsay of pointers storing the head nodes
+	# of the linked lists
+	lists = [None] * k
 
-lists = [[1,4,5], [1,3,4], [2,6]]
-# Create ListNode objects from the input list
-list_nodes = []
-for sublist in lists:
-    head = ListNode(sublist[0])
-    current = head
-    for i in range(1, len(sublist)):
-        current.next = ListNode(sublist[i])
-        current = current.next
-    list_nodes.append(head)
+	lists[0] = Node(1)
+	lists[0].next = Node(3)
+	lists[0].next.next = Node(5)
+	lists[0].next.next.next = Node(7)
 
-s = Solution()
-merged_list = s.mergeKLists(list_nodes)
+	lists[1] = Node(2)
+	lists[1].next = Node(4)
+	lists[1].next.next = Node(6)
+	lists[1].next.next.next = Node(8)
 
-# Print the merged list
-while merged_list:
-    print(merged_list.val, end=" ")
-    merged_list = merged_list.next
+	lists[2] = Node(0)
+	lists[2].next = Node(9)
+	lists[2].next.next = Node(10)
+	lists[2].next.next.next = Node(11)
+
+	head = mergeKLists(lists, k)
+
+	print("Merged Linked List:")
+	printList(head)
+
+# This code is contributed by shivamgupta310570
