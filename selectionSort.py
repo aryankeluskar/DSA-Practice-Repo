@@ -12,7 +12,7 @@ def main():
    print("Original Array: "+str(a))
    selectionSort(a)
    print("Sorted Array: "+str(a))
-1
+
 def selectionSort(a):
    for i in range(0, len(a)):
       minIndex = i
