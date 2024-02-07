@@ -1,5 +1,5 @@
 {
    "java.debug.settings.onBuildFailureProceed": true,
-   "editor.inlineSuggest.enabled": false,
+   "editor.inlineSuggest.enabled": true,
    "python.REPL.enableREPLSmartSend": false
 }
