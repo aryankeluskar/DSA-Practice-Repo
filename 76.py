@@ -1,3 +1,5 @@
+# Time limit exceeded kathe, im watching you leetcode.
+
 class Solution:
     def check(self, s: str, t: str) -> bool:
         if not s:

@@ -23,20 +23,29 @@ class Tree:
             root.left = self.deleteNode(root.left, key)
         elif key > root.val:
             root.right = self.deleteNode(root.right, key)
-        else:
-            if not root.left:
+        else: # delete root
+            # No children
+            if not root.left and not root.right:
+                return None 
+            
+            # One Child
+            elif not root.left:
                 return root.right
             elif not root.right:
                 return root.left
+            
+            # Two children
             else:
-                successor = root.right
-                while successor.left:
-                    successor = successor.left
-                root.val = successor.val
-                root.right = self.deleteNode(root.right, successor.val)        
+                # search for minimum val in right tree
+                curr = root
+                while curr.left:
+                    curr = curr.left
+                root.val = curr.val
+                root.right = self.RECURdeleteNode(root.right, curr.val)
+
         return root
 
-    def traversal(self, root):
+    def dfs(self, root, mode):
         tr = []
         
         def inOrder(root):
@@ -60,7 +69,12 @@ class Tree:
             inOrder(root.right)
             tr.append(root.val)
         
-        inOrder(root)
+        if mode == "in":
+            inOrder(root)
+        elif mode == "pre":
+            preOrder(root)
+        else:
+            postOrder(root)
         return tr
 
 
@@ -145,6 +159,7 @@ m.ITERinsertIntoBST(root, 23)
 m.RECURinsertIntoBST(root, 39)
 m.RECURinsertIntoBST(root, 21)
 m.RECURinsertIntoBST(root, 29)
+print(m.dfs(root, "in"))
 print_tree(root)
 m.ITERdeleteNode(root, 1)
 print_tree(root)
