@@ -29,11 +29,11 @@ class Tree:
             root = head
             
             def inOrder(root):
-                if not root:
-                    return
-                inOrder(root.left)
-                tr.append(root.val)
-                inOrder(root.right)
+                    if not root:
+                        return
+                    inOrder(root.left)
+                    tr.append(root.val)
+                    inOrder(root.right)
 
             def preOrder(root):
                 if not root:
