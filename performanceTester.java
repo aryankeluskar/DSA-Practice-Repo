@@ -25,8 +25,8 @@ public class performanceTester {
       System.out.println("Total memory: " + Runtime.getRuntime().totalMemory());
       System.out.println("Max memory: " + Runtime.getRuntime().maxMemory());
       System.out.println("Free memory: " + Runtime.getRuntime().freeMemory());
-
-      int iterations = 100000, sizeArray = 5;
+      
+      int iterations = 100000, sizeArray = 500;
       long totalTime = 0;
       double bestCase = 0.0, worstCase = 0.0;
 
