@@ -13,7 +13,7 @@ print("stacks rn: " + str(stacks))
 # The last item placed on the stack is the first item to be removed
 
 # Stack Operations
-#     pop     push
+#     pop    append
 #      Λ       |
 #      |       |
 #      |       v
