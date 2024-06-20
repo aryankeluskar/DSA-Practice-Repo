@@ -1,11 +1,6 @@
 #!/bin/python3
 
-import math
 import os
-import random
-import re
-import sys
-import string
 
 #
 # Complete the 'crypto' function below.

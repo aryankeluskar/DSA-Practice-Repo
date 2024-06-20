@@ -9,7 +9,7 @@ class LRUCache:
         self.q = deque()
 
     def get(self, key: int) -> int:
-        if not key in self.q:
+        if key not in self.q:
             return -1
         # self.q.remove(key)
         # self.q.append(key)
@@ -18,7 +18,7 @@ class LRUCache:
         return self.map[key]
 
     def put(self, key: int, value: int) -> None:
-        if not key in self.q:
+        if key not in self.q:
             self.c += 1
             self.map[key] = value
             self.q.appendleft(key)
