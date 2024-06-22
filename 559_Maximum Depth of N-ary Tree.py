@@ -6,8 +6,9 @@ class Node:
         self.children = children
 """
 
+
 class Solution:
-    def maxDepth(self, root: 'Node') -> int:
+    def maxDepth(self, root: "Node") -> int:
         md = 1
         if not root:
             return 0
@@ -17,4 +18,3 @@ class Solution:
                 md = curr
 
         return md
-        

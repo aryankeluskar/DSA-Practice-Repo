@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     def getConcatenation(self, nums: List[int]) -> List[int]:
-        cc = [0]*len(nums)*2
+        cc = [0] * len(nums) * 2
         for i in range(len(nums)):
             cc[i] = nums[i]
             cc[len(nums) + i] = nums[i]

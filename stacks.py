@@ -1,11 +1,11 @@
 stacks = []
-stacks.append('a')
-stacks.append('b')
-stacks.append('c')
+stacks.append("a")
+stacks.append("b")
+stacks.append("c")
 print("stacks rn: " + str(stacks))
-print("popped element: "+str(stacks.pop()))
+print("popped element: " + str(stacks.pop()))
 print("stacks rn: " + str(stacks))
-print("popped element: "+str(stacks.pop()))
+print("popped element: " + str(stacks.pop()))
 print("stacks rn: " + str(stacks))
 
 # LIFO - Last In First Out

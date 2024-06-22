@@ -1,4 +1,5 @@
 import queue
+
 queueEg = queue.Queue()
 queueEg.put(1)
 queueEg.put(2)
@@ -22,10 +23,10 @@ print("queue rn: " + str(queueEg.queue))
 # First placed item is first to be removed
 
 # Queue Operations
-#       pop     
-#        Λ       
-#        |       
-#        |       
+#       pop
+#        Λ
+#        |
+#        |
 #   _____________
 #  |    Top      |
 #  |             |
@@ -43,6 +44,6 @@ print("queue rn: " + str(queueEg.queue))
 #  |   Bottom    |
 #  |_____________|
 #        Λ
-#        |  
-#        | 
+#        |
+#        |
 #       push

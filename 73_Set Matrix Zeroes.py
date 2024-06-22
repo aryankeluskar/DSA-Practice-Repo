@@ -3,8 +3,8 @@ class Solution:
         """
         Do not return anything, modify matrix in-place instead.
         """
-        rows = [False]*len(matrix)
-        cols = [False]*len(matrix[0])
+        rows = [False] * len(matrix)
+        cols = [False] * len(matrix[0])
         print(rows)
         print(cols)
         print("---")
@@ -13,7 +13,7 @@ class Solution:
             for j in range(len(matrix[0])):
                 if matrix[i][j] == 0:
                     rows[i] = True
-                    cols[j] = True 
+                    cols[j] = True
                     pass
 
         print(rows)
@@ -21,7 +21,7 @@ class Solution:
 
         for i in range(len(rows)):
             if rows[i]:
-                matrix[i] = [0]*len(cols)
+                matrix[i] = [0] * len(cols)
 
         for i in range(len(cols)):
             if cols[i]:

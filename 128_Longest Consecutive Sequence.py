@@ -23,4 +23,3 @@ class Solution:
                 maxC = max(maxC, count)
 
         return maxC
-        

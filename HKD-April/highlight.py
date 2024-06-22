@@ -13,13 +13,14 @@ import os
 #  4. 2D_INTEGER_ARRAY reels
 #
 
+
 def highlight(n, m, k, reels):
     # Write your code here
     canvas = [[0 for _ in range(m)] for _ in range(n)]
     for row in reels:
         for i in range(row[1], row[2] + 1):
             canvas[row[0]][i] = 1
-    
+
     count = 0
     for i in range(n):
         for j in range(m):
@@ -28,8 +29,9 @@ def highlight(n, m, k, reels):
 
     return count
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     first_multiple_input = input().rstrip().split()
 
@@ -46,6 +48,6 @@ if __name__ == '__main__':
 
     result = highlight(n, m, k, reels)
 
-    fptr.write(str(result) + '\n')
+    fptr.write(str(result) + "\n")
 
     fptr.close()

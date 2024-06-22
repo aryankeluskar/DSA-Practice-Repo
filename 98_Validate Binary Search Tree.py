@@ -11,8 +11,8 @@ class Solution:
                 return True
             if not (min_val < node.val < max_val):
                 return False
-            return isBST(node.left, min_val, node.val) and isBST(node.right, node.val, max_val)
-        
-        return isBST(root, float('-inf'), float('inf'))
+            return isBST(node.left, min_val, node.val) and isBST(
+                node.right, node.val, max_val
+            )
 
-
+        return isBST(root, float("-inf"), float("inf"))

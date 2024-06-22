@@ -13,13 +13,14 @@ import os
 #  4. INTEGER flag
 #
 
+
 def crypto(str_length, input_str, key, flag):
     # Write your code here
     final_str = ""
     if flag == 0:
         for i in input_str:
             if i.isalpha():
-                loc = ord(i)-97
+                loc = ord(i) - 97
                 print(loc)
                 final_str += key[loc]
             else:
@@ -27,14 +28,15 @@ def crypto(str_length, input_str, key, flag):
     else:
         for i in input_str:
             if i.isalpha():
-                final_str += chr(key.index(i)+97)
+                final_str += chr(key.index(i) + 97)
             else:
                 final_str += i
 
     return final_str
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     str_length = int(input().strip())
 
@@ -46,6 +48,6 @@ if __name__ == '__main__':
 
     result = crypto(str_length, input_str, key, flag)
 
-    fptr.write(result + '\n')
+    fptr.write(result + "\n")
 
     fptr.close()

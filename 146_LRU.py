@@ -32,10 +32,9 @@ class LRUCache:
             evic = self.q.pop()
             # print(evic)
             # print(self.map)
-            
+
             self.c -= 1
-            pass            
-        
+            pass
 
     def strr(self):
         return str(self.map)

@@ -12,6 +12,5 @@ class Solution:
                 return [i, nums.index(lengthList[i])]
 
 
-
 s = Solution()
 print(s.twoSum([3, 3, 4], 6))

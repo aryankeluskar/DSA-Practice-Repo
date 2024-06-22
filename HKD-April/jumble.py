@@ -11,6 +11,7 @@ import os
 #  2. STRING Jumble
 #
 
+
 def word_jumble(Word, Jumble):
     # Write your code here
     jumarr = list(Jumble)
@@ -18,14 +19,13 @@ def word_jumble(Word, Jumble):
         if i in jumarr:
             jumarr.remove(i)
         else:
-            return 'N'
-        
-    return 'Y'
-        
-    
+            return "N"
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    return "Y"
+
+
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     Word = input()
 
@@ -33,6 +33,6 @@ if __name__ == '__main__':
 
     result = word_jumble(Word, Jumble)
 
-    fptr.write(str(result) + '\n')
+    fptr.write(str(result) + "\n")
 
     fptr.close()

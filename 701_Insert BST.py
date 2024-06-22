@@ -4,6 +4,8 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
+
 class Solution:
     def insertIntoBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
         if not root:

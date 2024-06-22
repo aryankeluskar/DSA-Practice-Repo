@@ -3,6 +3,7 @@ class Solution:
     @param: strs: a list of strings
     @return: encodes a list of strings to a single string.
     """
+
     def encode(self, strs):
         # write your code here
         newStr = ""
@@ -15,6 +16,7 @@ class Solution:
     @param: str: A string
     @return: decodes a single string to a list of strings
     """
+
     def decode(self, str2):
         # write your code here
         str2 = str(str2)

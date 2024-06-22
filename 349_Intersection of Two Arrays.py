@@ -3,7 +3,7 @@ class Solution:
         ma = {}
         for i in nums1:
             ma[i] = True
-        
+
         fin = []
         for i in nums2:
             try:

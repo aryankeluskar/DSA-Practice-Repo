@@ -2,7 +2,7 @@ class Solution:
     def searchHelper(self, nums: List[int], target: int, l: int, r: int) -> int:
         if l > r:
             return -1
-        
+
         m = (l + r) // 2
         if nums[m] == target:
             return m

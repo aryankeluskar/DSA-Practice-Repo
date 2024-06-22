@@ -14,27 +14,37 @@ import os
 #  5. 2D_CHARACTER_ARRAY grid
 #
 
+
 def search(grid, row, col, x, y, word):
     # check if first letter of word is at position (row, col)
     if grid[row][col] != word[0]:
         return [None, False]
-    
+
     # length of word
     length = len(word)
     rev_word = word[::-1]
-    last_index = (0,0)
-    
+    last_index = (0, 0)
+
     # check in all 8 directions
     for i in range(1, length):
         # check if position is out of grid
-        if (row + i*x) < 0 or (row + i*x) >= len(grid) or (col + i*y) < 0 or (col + i*y) >= len(grid[0]):
+        if (
+            (row + i * x) < 0
+            or (row + i * x) >= len(grid)
+            or (col + i * y) < 0
+            or (col + i * y) >= len(grid[0])
+        ):
             return [None, False]
         # check if letter at position (row + i*x, col + i*y) is same as letter at position i in word
-        if grid[row + i*x][col + i*y] != word[i] and grid[row + i*x][col + i*y] != rev_word[i]:
+        if (
+            grid[row + i * x][col + i * y] != word[i]
+            and grid[row + i * x][col + i * y] != rev_word[i]
+        ):
             return [None, False]
-        last_index = (row + i*x, col + i*y)
+        last_index = (row + i * x, col + i * y)
 
     return [last_index, True]
+
 
 def wordsearch(grid_rows, columns, word_dict_count, word_dict, grid):
     # new_word_dict = []
@@ -46,11 +56,11 @@ def wordsearch(grid_rows, columns, word_dict_count, word_dict, grid):
         first_letters.append(word[0])
 
     count = 0
-    
+
     for i in range(len(grid)):
         for j in range(len(grid[i])):
             print(found_map)
-            
+
             for k in range(-1, 2):
                 for l in range(-1, 2):
                     if k == 0 and l == 0:
@@ -58,26 +68,25 @@ def wordsearch(grid_rows, columns, word_dict_count, word_dict, grid):
                     for word in word_dict:
                         result = search(grid, i, j, k, l, word)
                         if result[1]:
-                            if [word, [result[0], (i,j)]] in found_map:
+                            if [word, [result[0], (i, j)]] in found_map:
                                 continue
-                            if [word, [(i,j), result[0]]] in found_map:
+                            if [word, [(i, j), result[0]]] in found_map:
                                 continue
-                            if [word[::-1], [(i,j), result[0]]] in found_map:
+                            if [word[::-1], [(i, j), result[0]]] in found_map:
                                 continue
-                            if [word[::-1], [result[0], (i,j)]] in found_map:
+                            if [word[::-1], [result[0], (i, j)]] in found_map:
                                 continue
                             count += 1
-                            found_map.append([word, [result[0], (i,j)]])
+                            found_map.append([word, [result[0], (i, j)]])
                             # print("Found", word, "at", i, j, "in direction", k, l)
 
     return count
 
 
-
 # main()
 
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     first_multiple_input = input().rstrip().split()
 
@@ -96,8 +105,6 @@ if __name__ == '__main__':
 
     result = wordsearch(grid_rows, columns, word_dict_count, word_dict, grid)
 
-    fptr.write(str(result) + '\n')
+    fptr.write(str(result) + "\n")
 
     fptr.close()
-
-

@@ -1,10 +1,13 @@
 import queue
+
+
 class Node:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
-    
+
+
 class Tree:
     def bfs(self, root) -> list:
         if not root:
@@ -13,51 +16,51 @@ class Tree:
         tr.put(root)
         final = []
         while not tr.empty():
-              curr = tr.get()
-              final.append(curr.val)
-              if curr.left:
-                  tr.put(curr.left)
-              if curr.right:
-                  tr.put(curr.right)
+            curr = tr.get()
+            final.append(curr.val)
+            if curr.left:
+                tr.put(curr.left)
+            if curr.right:
+                tr.put(curr.right)
 
-            #   tr.get()
+        #   tr.get()
 
         return final
 
     def dfs(self, head, mode) -> list:
-            tr = []
-            root = head
-            
-            def inOrder(root):
-                    if not root:
-                        return
-                    inOrder(root.left)
-                    tr.append(root.val)
-                    inOrder(root.right)
+        tr = []
+        root = head
 
-            def preOrder(root):
-                if not root:
-                    return
-                tr.append(root.val)
-                inOrder(root.left)
-                inOrder(root.right)
+        def inOrder(root):
+            if not root:
+                return
+            inOrder(root.left)
+            tr.append(root.val)
+            inOrder(root.right)
 
-            def postOrder(root):
-                if not root:
-                    return
-                inOrder(root.left)
-                inOrder(root.right)
-                tr.append(root.val)
-            
-            if mode == "in":
-                inOrder(root)
-            elif mode == "pre":
-                preOrder(root)
-            else:
-                postOrder(root)
-            return tr
-    
-    def RECURinsertIntoBST(self, root: Node, val:int) -> Node:
+        def preOrder(root):
+            if not root:
+                return
+            tr.append(root.val)
+            inOrder(root.left)
+            inOrder(root.right)
+
+        def postOrder(root):
+            if not root:
+                return
+            inOrder(root.left)
+            inOrder(root.right)
+            tr.append(root.val)
+
+        if mode == "in":
+            inOrder(root)
+        elif mode == "pre":
+            preOrder(root)
+        else:
+            postOrder(root)
+        return tr
+
+    def RECURinsertIntoBST(self, root: Node, val: int) -> Node:
         if not root:
             return Node(val)
         if val > root.val:
@@ -65,7 +68,8 @@ class Tree:
         elif val < root.val:
             root.left = self.RECURinsertIntoBST(root.left, val)
         return root
-    
+
+
 root = Node(val=10)
 root.left = Node(val=5)
 root.right = Node(val=15)

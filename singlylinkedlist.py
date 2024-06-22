@@ -30,7 +30,7 @@ newVal = input("Enter the value you want to append: ")
 newNode = ListNode(newVal)
 curr = blue
 while curr.next:
-   curr = curr.next
+    curr = curr.next
 curr.next = newNode
 
 # Appending at beginning

@@ -15,7 +15,7 @@ class Solution:
             for j in list(freq.keys()):
                 if freq[j] > freq[maxE]:
                     maxE = j
-            
+
             out.append(maxE)
             freq.pop(maxE)
 

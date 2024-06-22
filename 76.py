@@ -1,5 +1,6 @@
 # Time limit exceeded kathe, im watching you leetcode.
 
+
 class Solution:
     def check(self, s: str, t: str) -> bool:
         if not s:
@@ -8,7 +9,6 @@ class Solution:
             return False
         count = {}
         curr = {}
-        
 
     def minWindow(self, s: str, t: str) -> str:
         if not s or not t:
@@ -21,16 +21,17 @@ class Solution:
         left = 0
         right = 0
         while right < len(s):
-            if self.check(s[left:right+1], t):
-                print(s[left:right+1])
+            if self.check(s[left : right + 1], t):
+                print(s[left : right + 1])
                 if not res or right - left + 1 < len(res):
-                    res = s[left:right+1]
+                    res = s[left : right + 1]
                 left += 1
             else:
                 right += 1
 
         return res
-    
+
+
 print("a" in "")
 s = Solution()
-s.minWindow("bbaa","aba")
+s.minWindow("bbaa", "aba")

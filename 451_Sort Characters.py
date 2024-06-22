@@ -1,16 +1,15 @@
 from collections import defaultdict
 
-class Solution:
-    
 
+class Solution:
     def frequencySort(self, s: str) -> str:
         freq = defaultdict()
         for c in s:
             try:
-                freq[c] += 1    
+                freq[c] += 1
             except:
                 freq[c] = 1
-        
+
         keys = list(freq.keys())
         values = list(freq.values())
 
@@ -22,16 +21,15 @@ class Solution:
 
             values[i], values[maxIndex] = values[maxIndex], values[i]
             keys[i], keys[maxIndex] = keys[maxIndex], keys[i]
-            
 
-        final = ''
+        final = ""
         print(keys)
         print(values)
         for i in range(len(keys)):
-            final += (keys[i]*values[i])
+            final += keys[i] * values[i]
 
         return final
 
 
 s = Solution()
-print(s.frequencySort("tree"))  
+print(s.frequencySort("tree"))

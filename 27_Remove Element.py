@@ -1,6 +1,7 @@
 from typing import List
 # December 9, 2023
 
+
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
         k = 0
@@ -9,4 +10,3 @@ class Solution:
                 nums[k] = nums[i]
                 k += 1
         return k
-

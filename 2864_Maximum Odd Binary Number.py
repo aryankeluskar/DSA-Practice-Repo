@@ -3,9 +3,9 @@ class Solution:
         oc = 0
         tc = 0
         for i in s:
-            if i == '1':
-                oc+=1
+            if i == "1":
+                oc += 1
             else:
-                tc+=1
+                tc += 1
 
-        return "1"*(oc-1)+"0"*tc+"1"
+        return "1" * (oc - 1) + "0" * tc + "1"

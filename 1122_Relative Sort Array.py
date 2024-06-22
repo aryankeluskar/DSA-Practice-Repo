@@ -12,7 +12,7 @@ class Solution:
 
         fin = []
         for i in freq:
-            fin += [i]*freq[i]
+            fin += [i] * freq[i]
 
         fin += sorted(rem)
 

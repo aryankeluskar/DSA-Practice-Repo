@@ -4,9 +4,10 @@ class Node:
         self.val = val
         self.left = left
         self.right = right
-    
+
+
 class Tree:
-    def RECURinsertIntoBST(self, root: Node, val:int) -> Node:
+    def RECURinsertIntoBST(self, root: Node, val: int) -> Node:
         if not root:
             return Node(val)
         if val > root.val:
@@ -15,25 +16,25 @@ class Tree:
             root.left = self.RECURinsertIntoBST(root.left, val)
         return root
 
-    def RECURdeleteNode(self, root:Node, key: int) -> Node:
+    def RECURdeleteNode(self, root: Node, key: int) -> Node:
         if not root:
             return None
-        
+
         if key < root.val:
             root.left = self.deleteNode(root.left, key)
         elif key > root.val:
             root.right = self.deleteNode(root.right, key)
-        else: # delete root
+        else:  # delete root
             # No children
             if not root.left and not root.right:
-                return None 
-            
+                return None
+
             # One Child
             elif not root.left:
                 return root.right
             elif not root.right:
                 return root.left
-            
+
             # Two children
             else:
                 # search for minimum val in right tree
@@ -47,7 +48,7 @@ class Tree:
 
     def dfs(self, root, mode):
         tr = []
-        
+
         def inOrder(root):
             if not root:
                 return
@@ -68,7 +69,7 @@ class Tree:
             inOrder(root.left)
             inOrder(root.right)
             tr.append(root.val)
-        
+
         if mode == "in":
             inOrder(root)
         elif mode == "pre":
@@ -76,8 +77,6 @@ class Tree:
         else:
             postOrder(root)
         return tr
-
-
 
     def ITERinsertIntoBST(self, root: Node, val: int) -> Node:
         if not root:
@@ -96,7 +95,7 @@ class Tree:
                     curr.right = Node(val)
                     return root
                 curr = curr.right
-    
+
     def ITERdeleteNode(self, root: Node, key: int) -> Node:
         if not root:
             return None
@@ -113,7 +112,7 @@ class Tree:
                     else:
                         parent.right = curr.left or curr.right
                     return root
-                
+
                 # Case 2: Node to be deleted has two children
                 successor_parent = curr
                 successor = curr.right
@@ -127,15 +126,16 @@ class Tree:
                 else:
                     successor_parent.right = successor.right
                 return root
-                
+
             elif curr.val > key:
                 parent = curr
                 curr = curr.left
             else:
                 parent = curr
                 curr = curr.right
-        
+
         return root
+
 
 def print_tree(root, level=0, prefix="Root: ", max_depth=None):
     if root is None:

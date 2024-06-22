@@ -2,49 +2,52 @@
 
 import random
 
+
 def main():
     size = int(input("what size: "))
     a = []
 
     for i in range(0, size):
-        a.append(int(random.random()*1000+1))
+        a.append(int(random.random() * 1000 + 1))
 
-    print("Original Array: "+str(a))
+    print("Original Array: " + str(a))
 
     mergesort(a)
 
-    print("Sorted Array: "+str(a))
-    
+    print("Sorted Array: " + str(a))
+
 
 def mergesort(a):
-    l=0
-    r=len(a)-1
-    mergeSortHelper(a,l,r)
+    l = 0
+    r = len(a) - 1
+    mergeSortHelper(a, l, r)
 
-def mergeSortHelper(a,l,r):
-    if l<r:
-        m = l+(r-l)//2
+
+def mergeSortHelper(a, l, r):
+    if l < r:
+        m = l + (r - l) // 2
 
         mergeSortHelper(a, l, m)
-        mergeSortHelper(a, m+1, r)
+        mergeSortHelper(a, m + 1, r)
         merge(a, l, m, r)
 
-def merge(arr, l, m, r):
-    n1 = m-l+1
-    n2 = r-m
 
-    L = [0]*n1
-    R = [0]*n2
+def merge(arr, l, m, r):
+    n1 = m - l + 1
+    n2 = r - m
+
+    L = [0] * n1
+    R = [0] * n2
 
     for i in range(0, n1):
-        L[i] = arr[l+i]
+        L[i] = arr[l + i]
 
-    for j in range(0,n2):
-        R[j] = arr[m+1+j]
+    for j in range(0, n2):
+        R[j] = arr[m + 1 + j]
 
-    i=0
-    j=0
-    k=l
+    i = 0
+    j = 0
+    k = l
 
     while i < n1 and j < n2:
         if L[i] <= R[j]:
@@ -54,7 +57,7 @@ def merge(arr, l, m, r):
             arr[k] = R[j]
             j += 1
         k += 1
- 
+
     while i < n1:
         arr[k] = L[i]
         i += 1

@@ -12,28 +12,29 @@ import os
 #  3. INTEGER_ARRAY nums
 #
 
+
 def longest_subarray(n, k, nums):
     left = 0
     right = 0
     max_len = 0
-    curr_sum 
-    
+    curr_sum
+
     while right < n:
         if nums[right] == 0:
             k -= 1
-        
+
         if k < 0:
             if nums[left] == 0:
                 k += 1
             left += 1
-        
+
         right += 1
-    
+
     return right - left - 1
 
-    
-if __name__ == '__main__':
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+if __name__ == "__main__":
+    fptr = open(os.environ["OUTPUT_PATH"], "w")
 
     first_multiple_input = input().rstrip().split()
 
@@ -45,6 +46,6 @@ if __name__ == '__main__':
 
     result = longest_subarray(n, k, nums)
 
-    fptr.write(str(result) + '\n')
+    fptr.write(str(result) + "\n")
 
     fptr.close()

@@ -12,14 +12,13 @@ class Solution:
         right = head
         for i in range(n):
             right = right.next
-        
+
         if not right:
             head = head.next
 
         while right and right.next:
             left = left.next
             right = right.next
-
 
         if left.next:
             left.next = left.next.next

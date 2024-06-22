@@ -1,7 +1,7 @@
 # February 18th, 2024
 
-class MyHashMap:
 
+class MyHashMap:
     def __init__(self):
         self.dict = {}
 
@@ -18,7 +18,6 @@ class MyHashMap:
 
     def remove(self, key: int) -> None:
         self.dict[key] = None
-        
 
 
 # Your MyHashMap object will be instantiated and called as such:

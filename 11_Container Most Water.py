@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         r"""
@@ -31,7 +32,7 @@ class Solution:
                 l += 1
 
             elif height[l] == height[r]:
-                if height[l+1] >= height[r - 1]:
+                if height[l + 1] >= height[r - 1]:
                     l += 1
                 else:
                     r -= 1

@@ -5,11 +5,11 @@ class Solution1624:
         # if greater than max then modify max
 
         max = -1
-        seen = ['']
+        seen = [""]
 
         for cc in s:
             if cc not in seen:
-               #  print("checking for " + str(cc))
+                #  print("checking for " + str(cc))
                 if max < (s.rfind(cc) - s.find(cc) - 1):
                     max = s.rfind(cc) - s.find(cc) - 1
                 seen.append(cc)
