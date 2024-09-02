@@ -8,7 +8,6 @@
 # For example, once the pillow reaches the nth person they pass it to the n - 1th person, then to the n - 2th person and so on.
 # Given the two positive integers n and time, return the index of the person holding the pillow after time seconds.
 
- 
 
 # Example 1:
 
@@ -22,6 +21,7 @@
 # Output: 3
 # Explanation: People pass the pillow in the following way: 1 -> 2 -> 3.
 # After two seconds, the 3rd person is holding the pillow.
+
 
 class Solution:
     def passThePillow(self, n: int, time: int) -> int:
