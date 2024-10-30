@@ -15,6 +15,7 @@ class SolutionTwo {
 
    public static void main(String[] args) {
       SolutionTwo s = new SolutionTwo();
+      System.out.println("Two Sum");
       int[] result = s.twoSum(new int[] { 3, 3, 4 }, 6);
       System.out.println(result[0] + " " + result[1]);
    }
