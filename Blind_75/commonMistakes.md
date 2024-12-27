@@ -1,0 +1,2 @@
+- isalpha and isdigit, not isAlpha and isDigit
+- for alphanumeric, use isalnum()
