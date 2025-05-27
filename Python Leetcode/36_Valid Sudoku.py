@@ -1,23 +1,31 @@
+from typing import List
+
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        row = []
-        col = []
-        for _ in range(9):
-            row.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
-            col.append([0, 0, 0, 0, 0, 0, 0, 0, 0])
+        rows_seen = [set() for _ in range(9)]
+        cols_seen = [set() for _ in range(9)]
+        subgrids_seen = [set() for _ in range(9)]
 
-        grid = [[[] for _ in range(3)] for _ in range(3)]
-
-        for i in range(9):
-            for j in range(9):
-                if board[i][j] == ".":
+        for r in range(9):
+            for c in range(9):
+                val = board[r][c]
+                if val == ".":
                     continue
-                if board[i][j] in row[i] or board[i][j] in col[j]:
+
+                if val in rows_seen[r]:
+
                     return False
-                if board[i][j] in grid[i // 3][j // 3]:
+                rows_seen[r].add(val)
+
+                if val in cols_seen[c]:
+
                     return False
-                row[i].append(board[i][j])
-                col[j].append(board[i][j])
-                grid[i // 3][j // 3].append(board[i][j])
+                cols_seen[c].add(val)
+
+                subgrid_idx = (r // 3) * 3 + (c // 3)
+                if val in subgrids_seen[subgrid_idx]:
+
+                    return False
+                subgrids_seen[subgrid_idx].add(val)
 
         return True
